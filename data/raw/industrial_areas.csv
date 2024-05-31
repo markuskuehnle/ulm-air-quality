@@ -1,0 +1,42 @@
+type,id,lat,lon,tags
+way,15527184,48.3930172,9.9674916,"{'addr:housenumber': '85', 'addr:postcode': '89077', 'addr:street': 'Woerthstraße', 'landuse': 'industrial', 'name': 'Hensoldt/ Airbus - Defence & Space', 'website': 'http://airbusdefenceandspace.com/'}"
+way,22811953,48.3531705,9.9238391,"{'landuse': 'industrial', 'name': 'Industriegebiet Donautal'}"
+way,28749351,48.4292839,9.9853139,"{'landuse': 'industrial', 'name': 'Industriegebiet Franzenhauserweg'}"
+way,60779922,48.3741912,10.0035693,"{'amenity': 'drugs_firm', 'landuse': 'industrial', 'name': 'Nuvisan GmbH'}"
+way,61940676,48.3742963,9.9657217,"{'landuse': 'industrial', 'name': 'Donaukraftwerk Wiblingen', 'plant:output:electricity': '1250 kW', 'plant:source': 'hydro', 'power': 'plant', 'wikidata': 'Q27478990', 'wikipedia': 'de:Kraftwerk Wiblingen'}"
+way,66877100,48.3822662,10.0019716,{'landuse': 'industrial'}
+way,87191577,48.4072785,10.0040535,"{'landuse': 'industrial', 'name': 'Mayser GmbH & Co. KG'}"
+way,101893119,48.3951548,9.9696284,{'landuse': 'industrial'}
+way,118977675,48.4114861,10.0256153,{'landuse': 'industrial'}
+way,120183538,48.4189194,9.9357858,"{'comment': 'Firmengelände BMGMIS', 'landuse': 'industrial', 'source': 'survey', 'url': 'http://www.bmgmis.de'}"
+way,124185129,48.4065052,9.9889486,"{'craft': 'brewery', 'industrial': 'brewery', 'landuse': 'industrial', 'name': 'Brauerei Gold Ochsen', 'website': 'https://goldochsen.de', 'wikidata': 'Q900213', 'wikipedia': 'de:Brauerei Gold Ochsen'}"
+way,124316736,48.4080682,9.9275054,"{'alt_name': 'Heinrich Glaeser Nachf. GmbH', 'barrier': 'fence', 'landuse': 'industrial', 'name': 'GLAESER textil'}"
+way,127033233,48.4021503,9.940774,{'landuse': 'industrial'}
+way,155686038,48.400954,9.9804439,"{'building': 'industrial', 'landuse': 'industrial', 'name': 'Bäko'}"
+way,158032278,48.3975279,9.9650317,"{'frequency': '50', 'landuse': 'industrial', 'name': 'Fernwärme Ulm GmbH', 'operator': 'Fernwärme Ulm GmbH', 'plant:method': 'combustion', 'plant:output:electricity': '33.9 MW', 'plant:output:hot_water': 'yes', 'plant:output:steam': 'yes', 'plant:source': 'coal;biomass', 'power': 'plant', 'ref': 'www.fernwaerme-ulm.de', 'url': 'http://www.fernwaerme-ulm.de', 'wikidata': 'Q1601498'}"
+way,169717429,48.4199341,9.9068658,{'landuse': 'industrial'}
+way,173528633,48.3731837,9.9453369,"{'addr:housenumber': '1', 'addr:street': 'Kuhbergring', 'amenity': 'recycling', 'landuse': 'industrial', 'name': 'Recyclinghof Grimmelfingen', 'opening_hours': 'Mo,Tu,Th, Fr 09:00-18:00; We 13:00-18:00; Sa 09:00-17:00', 'operator': 'Entsorgungs-Betriebe der Stadt Ulm (EBU)', 'recycling:batteries': 'yes', 'recycling:cans': 'yes', 'recycling:clothes': 'yes', 'recycling:glass': 'yes', 'recycling:green_waste': 'yes', 'recycling:paper': 'yes', 'recycling:scrap_metal': 'yes', 'recycling_type': 'centre', 'url': 'http://www.ebu-ulm.de'}"
+way,182573689,48.3815945,9.980911,"{'landuse': 'industrial', 'name': 'Baubetriebshof der Stadt Ulm'}"
+way,194256791,48.3655181,9.9856813,"{'craft': 'plasterer', 'landuse': 'industrial', 'name': 'Stöbling', 'website': 'http://www.stoebling.de'}"
+way,215116402,48.4369696,9.9727891,"{'landuse': 'industrial', 'name': 'Industriegebiet Lehr'}"
+way,229653085,48.4001526,9.9512067,{'landuse': 'industrial'}
+way,240291226,48.4290444,9.9863471,"{'landuse': 'industrial', 'name': 'Industriegebiet Buchbrunnenweg'}"
+way,240291227,48.4273658,9.989961,"{'landuse': 'industrial', 'name': 'Industriegebiet Hörvelsinger Weg'}"
+way,251996675,48.3971103,9.9651572,"{'building': 'yes', 'generator:method': 'combustion', 'generator:output:electricity': '8.7 MW', 'generator:output:hot_water': 'yes', 'generator:source': 'biomass', 'landuse': 'industrial', 'name': 'Biomasse-HKW I', 'operator': 'FUG', 'power': 'generator', 'start_date': '2004'}"
+way,251996676,48.3981404,9.9662035,"{'building': 'yes', 'generator:method': 'combustion', 'generator:output:electricity': '4.5 MW', 'generator:output:hot_water': 'yes', 'generator:source': 'biomass', 'landuse': 'industrial', 'name': 'Biomasse-HKW II', 'operator': 'FUG', 'power': 'generator', 'start_date': '2012'}"
+way,259255505,48.3873123,10.026691,"{'landuse': 'industrial', 'name': 'Starkfeld'}"
+way,306585097,48.3615494,9.965018,"{'landuse': 'industrial', 'name': 'Stadt Ulm, Lagerplatz Kastbrücke'}"
+way,307804675,48.4174712,9.9142908,{'landuse': 'industrial'}
+way,362655276,48.3967994,9.9662191,"{'building': 'yes', 'generator:method': 'combustion', 'generator:output:electricity': '20.7 MW', 'generator:output:hot_water': 'yes', 'generator:source': 'fossil', 'generator:type': 'steam_generator', 'landuse': 'industrial', 'name': 'Kessel 1, 5, 6', 'operator': 'FUG', 'power': 'generator'}"
+way,450388595,48.3954245,9.9710221,"{'access': 'private', 'landuse': 'industrial', 'name': 'Altes Röhrenwerk', 'old_name': 'Industriepark West', 'website': 'https://beos.net/objekte/altes-roehrenwerk-in-ulm/'}"
+way,534343155,48.4079654,9.9264192,"{'landuse': 'industrial', 'name': 'Schilderfabrik Heyer + Ostler GmbH & Co. KG'}"
+way,689583295,48.3903868,10.0036633,{'landuse': 'industrial'}
+way,799163431,48.3940684,10.0221445,"{'contact:email': 'info@sued-west-chemie.de', 'contact:fax': '+49 731 70707-60', 'contact:phone': '+49 731 70707-0', 'industrial': 'factory', 'landuse': 'industrial', 'name': 'Süd-West-Chemie', 'operator': 'Süd-West-Chemie GmbH', 'website': 'https://www.sued-west-chemie.de/'}"
+way,807927755,48.3806842,9.9321395,{'landuse': 'industrial'}
+way,828447260,48.3634728,9.9517904,"{'landuse': 'industrial', 'name': 'Schwenk'}"
+way,874008757,48.4308859,9.9627358,"{'description': 'Blockheizkraftwerk für das Wohngebiet ""Beim Wengenholz""', 'landuse': 'industrial', 'operator': 'SWU Energie', 'plant:output:electricity': 'yes', 'plant:output:hot_water': 'yes', 'plant:source': 'gas;solar', 'power': 'plant'}"
+way,901300632,48.3602786,9.9680446,"{'check_date': '2024-03-13', 'landuse': 'industrial', 'name': 'Industriegebiet Wiblingen'}"
+way,934925625,48.3977211,10.0232791,"{'cargo': 'vehicle', 'company': 'logistics', 'contact:email': 'info@allgaier.com', 'contact:fax': '+49 731 97440-900', 'contact:phone': '+49 731 97440-0', 'landuse': 'industrial', 'logistics': 'hgv', 'name': 'Allgaier GmbH', 'operator': 'Allgaier GmbH', 'website': 'https://www.allgaier.com/'}"
+way,934925626,48.3970891,10.0209449,"{'landuse': 'industrial', 'name': 'Allgaier GmbH'}"
+way,1218954589,48.3818913,9.9483548,{'landuse': 'industrial'}
+way,1269045399,48.4121459,9.9241279,"{'landuse': 'industrial', 'note': 'Wasserkraftwerk'}"

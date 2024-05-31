@@ -1,0 +1,5 @@
+type,id,lat,lon,tags
+way,4706683,48.3983498,9.9733199,"{'leisure': 'park', 'name': 'Blauinsel'}"
+way,32891283,48.4093915,9.9664785,"{'leisure': 'park', 'name': 'Park Fort Unterer Eselsberg'}"
+way,363274190,48.4102288,9.9555863,{'leisure': 'park'}
+way,910837410,48.3985615,9.9624324,{'leisure': 'park'}
