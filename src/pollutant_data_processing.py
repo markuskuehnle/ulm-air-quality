@@ -3,6 +3,7 @@ import json
 import pandas as pd
 from paths import RAW_DATA_DIR, TRANSFORMED_DATA_DIR 
 
+
 def fetch_data(url, limit=300000) -> pd.DataFrame:
     """
     Fetches data from the specified URL with pagination if the response returns the limit number of rows.
@@ -47,17 +48,37 @@ def fetch_data(url, limit=300000) -> pd.DataFrame:
     
     return final_df
 
+
 def validate_data(df) -> pd.DataFrame:
     """
-    Validate the data by filling gaps and ensuring no values are below 0.
+    Validate the data by ensuring no values are below 0.
     
     Args:
         df (pd.DataFrame): The input DataFrame to validate.
         
     Returns:
-        pd.DataFrame: The validated DataFrame with gaps filled and no negative values.
+        pd.DataFrame: The validated DataFrame with no negative values.
+    """
+    # Remove any negative values
+    df['wert'] = df['wert'].apply(lambda x: max(x, 0))
+
+    return df
+
+
+def clean_data(df) -> pd.DataFrame:
+    """
+    Clean the data by renaming columns, filtering for a specific station, 
+    and removing unnecessary columns and index.
+    
+    Args:
+        df (pd.DataFrame): The input DataFrame to clean.
+        
+    Returns:
+        pd.DataFrame: The cleaned DataFrame.
     """
     df = df.rename(columns={'_id': 'id', 'timestamp': 'date', 'schadstoff': 'pollutant', 'wert': 'concentration'})
+    df = df[df['station'] == 'Ulm in der Wanne']
+
     df = df.drop(columns={"id", "station"})
     df = df.sort_values(by='date')
 
@@ -84,35 +105,25 @@ def validate_data(df) -> pd.DataFrame:
     # Apply fill_gaps function to each group
     df_filled = df_resampled.groupby('pollutant', group_keys=True).apply(fill_gaps).drop(columns="pollutant")
 
-    # Remove any negative values
-    df_filled['concentration'] = df_filled['concentration'].apply(lambda x: max(x, 0))
-
     # Reset index for further operations
     df_filled = df_filled.reset_index()
     df_filled = df_filled.drop(columns="level_1", errors='ignore')
-    return df_filled
-
-def clean_data(df) -> pd.DataFrame:
-    """
-    Clean the data by renaming columns, filtering for a specific station, 
-    and removing unnecessary columns and index.
     
-    Args:
-        df (pd.DataFrame): The input DataFrame to clean.
-        
-    Returns:
-        pd.DataFrame: The cleaned DataFrame.
-    """
-    # Ensure the index is a DatetimeIndex
-    df['date'] = pd.to_datetime(df['date'])
-    df = df.set_index('date')
-
     # Pivot the DataFrame to have separate columns for each pollutant
-    df_pivot = df.pivot_table(values='concentration', index='date', columns='pollutant')
-
+    df_pivot = df_filled.pivot_table(values='concentration', index='date', columns='pollutant')
+    df_pivot.columns = df_pivot.columns.str.lower()
     return df_pivot
 
+
 def resample_data(df) -> pd.DataFrame:
-    # Resample to daily averages and handle missing values
+    """
+    Resample the data to daily averages and handle missing values.
+    
+    Args:
+        df (pd.DataFrame): The input DataFrame to resample.
+        
+    Returns:
+        pd.DataFrame: The resampled DataFrame with daily averages.
+    """
     df = df.resample('D').mean().dropna()
     return df

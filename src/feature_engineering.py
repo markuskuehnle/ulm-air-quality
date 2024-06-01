@@ -2,19 +2,19 @@ import pandas as pd
 
 
 def extract_date_features(df):
-    """Extracts date-related features from the index of the DataFrame."""
-    df.index = pd.to_datetime(df.index)
-    df['day_of_week'] = df.index.dayofweek
-    df['month'] = df.index.month
-    df['year'] = df.index.year
-    df['season'] = df.index.month % 12 // 3 + 1  # 1: Winter, 2: Spring, 3: Summer, 4: Autumn
+    """Extracts date-related features from the 'date' column of the DataFrame."""
+    df['date'] = pd.to_datetime(df['date'], format='%d.%m.%Y')
+    df['day_of_week'] = df['date'].dt.dayofweek
+    df['month'] = df['date'].dt.month
+    df['year'] = df['date'].dt.year
+    df['season'] = (df['date'].dt.month % 12 // 3) + 1  # 1: Winter, 2: Spring, 3: Summer, 4: Autumn
     return df
 
 
 def create_interaction_features(df):
     """Creates interaction features between pollutants and weather conditions."""
     df['temp_pm10_interaction'] = df['mean_temp'] * df['pm10']
-    df['windspeed_pm25_interaction'] = df['max_wind_gust'] * df['pm25']
+    df['windspeed_pm25_interaction'] = df['max_wind_gust'] * df['pm2.5']
     df['sunshine_pm10_interaction'] = df['sunshine'] * df['pm10']
     df['temp_windspeed_interaction'] = df['mean_temp'] * df['max_wind_gust']
     df['temp_sunshine_interaction'] = df['mean_temp'] * df['sunshine']
@@ -59,34 +59,22 @@ def perform_feature_engineering(df):
 
 def merge_data(pollutants_df, weather_df):
     """Merges pollutant and weather data on common dates."""
-    # Ensure both DataFrames have DatetimeIndex
-    weather_df['date'] = pd.to_datetime(weather_df['date'])
-    weather_df = weather_df.set_index('date')
+    # Ensure both DataFrames have 'date' column formatted as dd.mm.YYYY
+    pollutants_df = pollutants_df.reset_index()
+    weather_df = weather_df.reset_index()
 
-    # Inspect date ranges
-    first_date_pollutants = pollutants_df.index.min()
-    last_date_pollutants = pollutants_df.index.max()
-    first_date_weather = weather_df.index.min()
-    last_date_weather = weather_df.index.max()
+    pollutants_df['date'] = pd.to_datetime(pollutants_df['date'], format='%Y-%m-%d').dt.strftime('%d.%m.%Y')
+    weather_df['date'] = pd.to_datetime(weather_df['date'], format='%Y-%m-%d').dt.strftime('%d.%m.%Y')
 
-    print(f"Pollutant DataFrame date range: {first_date_pollutants} to {last_date_pollutants}")
-    print(f"Weather DataFrame date range: {first_date_weather} to {last_date_weather}")
+    # Merge the DataFrames on the 'date' column
+    merged_df = pd.merge(pollutants_df, weather_df, on='date', how='inner')
+    
+    # Drop unnecessary index columns if they exist
+    merged_df = merged_df.reset_index(drop=True)
+    if 'index' in merged_df.columns:
+        merged_df = merged_df.drop(columns=['index'])
+    if 'level_0' in merged_df.columns:
+        merged_df = merged_df.drop(columns=['level_0'])
 
-    # Determine the overlapping date range
-    overlap_start_date = max(first_date_pollutants, first_date_weather)
-    overlap_end_date = min(last_date_pollutants, last_date_weather)
-
-    if overlap_start_date > overlap_end_date:
-        raise ValueError("No overlapping dates between pollutant and weather data.")
-
-    # Filter DataFrames to the overlapping date range
-    pollutants_df_filtered = pollutants_df.loc[overlap_start_date:overlap_end_date]
-    weather_df_filtered = weather_df.loc[overlap_start_date:overlap_end_date]
-
-    # Forward fill and backward fill to handle missing dates in the weather data
-    weather_df_filtered = weather_df_filtered.reindex(pollutants_df_filtered.index).ffill().bfill()
-
-    # Merge the DataFrames on the index (date)
-    merged_df = pd.merge(pollutants_df_filtered, weather_df_filtered, left_index=True, right_index=True, how='inner')
-
-    return merged_df
+    df = merged_df.reset_index(drop=True)
+    return df
