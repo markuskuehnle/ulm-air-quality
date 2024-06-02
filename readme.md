@@ -1,6 +1,11 @@
 # Smart City Ulm: Air Quality Analysis 
 ---
 
+### Project Status
+
+**Note:** This project is currently undergoing refactoring and improvement. We are in the process of enhancing the codebase to improve maintainability, performance, and extendibility. Please expect changes and updates as we work to make these improvements. Your understanding and patience are appreciated.
+
+---
 ## Executive Summary:
 
 Leveraging advanced air quality monitoring at Eselsberg, this project focuses on the critical insights provided by the Lupferbrücke sensor. Despite a reduction in the number of active sensors, the data from this single sensor is instrumental in addressing key urban issues. This includes issuing timely health advisories, optimizing traffic management, and fostering public awareness about environmental conditions. By analyzing this data, Ulm can develop strategic plans for urban development, enhance public health measures, and engage the community in pollution reduction efforts. The continued operation of this sensor highlights Ulm's dedication to sustainability and public well-being.
