@@ -3,7 +3,7 @@
 
 ### Project Status
 
-**Note:** This project is currently undergoing refactoring and improvement. We are in the process of enhancing the codebase to improve maintainability, performance, and extendibility. Please expect changes and updates as we work to make these improvements. Your understanding and patience are appreciated.
+**Note:** This project is currently undergoing refactoring and improvement. I am in the process of enhancing the codebase to improve maintainability, performance, and extendibility. Please expect changes and updates as we work to make these improvements. Your understanding and patience are appreciated.
 
 ---
 ## Executive Summary:
